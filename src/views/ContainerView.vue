@@ -1,17 +1,19 @@
 <template>
   <div class="container">
 
-    <router-view/>
+    <div class="content">
+      <router-view/>
+    </div>
 
     <fixed-aside>
-        <h2>Carrinho</h2>
+        <h2>Meu Carrinho</h2>
         <ul>
             <li>item 1</li>
             <li>item 2</li>
             <li>item 3</li>
         </ul>
 
-        <button>Finalizar compra</button>
+        <button class="button buy">Finalizar compra</button>
     </fixed-aside>
   </div>
 </template>

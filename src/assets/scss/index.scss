@@ -9,6 +9,12 @@
     position: relative;
     min-height: 100vh;
 
+    .content {
+        max-width: var(--max-width);
+        width: 100%;
+        margin: 0 auto;
+    }
+
     .header {
         background-color: var(--bg-secondary);
         position: sticky;
@@ -22,9 +28,6 @@
             justify-content: space-between;
             align-items: center;
             height: 100%;
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
 
             .logo {
                 color: var(--color-tertiary);
@@ -56,6 +59,24 @@
                 span {
                     cursor: pointer;
                 }
+
+                .cart {
+                    position: relative;
+
+                    .badge {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: absolute;
+                        top: -7px;
+                        right: -7px;
+                        width: 21px;
+                        height: 21px;
+                        background: var(--bg-quaternary);
+                        border-radius: 50%;
+                        font-size: .625rem;
+                    }
+                }
             }
         }
     }
@@ -73,6 +94,55 @@
             max-width: 300px;
             width: 100%;
             border-left: var(--border);
+        }
+
+        .products {
+            display: grid;
+            grid-auto-rows: 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px 60px;
+
+            .product-item {
+                text-align: center;
+
+                .thumbnail {
+                    position: relative;
+
+                    .wishlist {
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                    }
+
+                    figure {
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0 auto;
+                        min-height: 200px;
+                        overflow: hidden;
+
+                        img {
+                            mix-blend-mode: unset;
+                            width: 100%;
+                            max-height: 280px;
+                            object-fit: cover;
+                        }
+
+                        figcaption {
+                            color: var(--color-tertiary);
+                            background-color: rgba(0, 0, 0, .3);
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            padding: 5px 0;
+                        }
+                    }
+
+                }
+            }
         }
     }
 }

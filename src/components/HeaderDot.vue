@@ -11,8 +11,12 @@
             </div>
 
             <nav class="actions">
-                <span aria-label="Favoritos" class="material-icons md-30 md-light">favorite</span>
-                <span aria-label="Carrinho" class="material-icons md-30 md-light">shopping_cart</span>
+                <span aria-label="Favoritos" title="Favoritos" class="material-icons md-30 md-light">favorite</span>
+                
+                <span class="cart" title="Carrinho">
+                    <span aria-label="Carrinho" class="material-icons md-30 md-light">shopping_cart</span>
+                    <p class="badge">22</p>
+                </span>
             </nav>
         </div>
     </div>
