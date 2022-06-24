@@ -1,20 +1,18 @@
 <template>
     <div class="header">
         <div class="content">
-            <h1>LOGO</h1>
+            <h1 class="logo" aria-label="Logo">LOGO</h1>
 
-            <form @submit.prevent="console.log('hello')">
-                <div class="search-input">
-                    <input type="search" placeholder="Pesquisar" />
-                    <button type="submit" aria-label="Botão Pesquisar">
-                        <span class="material-icons">search</span>
-                    </button>
-                </div>
-            </form>
+            <div class="search-input">
+                <input class="input" type="search" placeholder="Pesquisar" />
+                <button type="submit" class="button" aria-label="Botão Pesquisar">
+                    <span class="material-icons">search</span>
+                </button>
+            </div>
 
-            <nav>
-                <router-link to="/">Home</router-link> |
-                <router-link to="/checkout">Checkout</router-link>
+            <nav class="actions">
+                <span aria-label="Favoritos" class="material-icons md-30 md-light">favorite</span>
+                <span aria-label="Carrinho" class="material-icons md-30 md-light">shopping_cart</span>
             </nav>
         </div>
     </div>

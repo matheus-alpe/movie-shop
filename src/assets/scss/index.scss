@@ -1,23 +1,62 @@
 @use 'resets';
 @use 'variables';
 @use 'fonts';
+@use 'components';
 
 #app {
     display: grid;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: var(--header-height) 1fr;
     position: relative;
     min-height: 100vh;
 
     .header {
         background-color: var(--bg-secondary);
         position: sticky;
+        padding: 0 10px;
         top: 0;
         left: 0;
         z-index: 1;
 
         .content {
             display: flex;
-            max-width: 70vw;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+
+            .logo {
+                color: var(--color-tertiary);
+                flex: 1;
+            }
+
+            .search-input {
+                position: relative;
+                flex: 2;
+
+                .input {
+                    padding-right: 40px;
+                }
+
+                .button {
+                    position: absolute;
+                    right: 10px;
+                    top: 0;
+                    bottom: 0;
+                }
+            }
+
+            .actions {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                gap: 0 30px;
+
+                span {
+                    cursor: pointer;
+                }
+            }
         }
     }
 
@@ -29,7 +68,7 @@
         .fixed-aside {
             position: fixed;
             right: 0;
-            top: 100px;
+            top: var(--header-height);
             bottom: 0;
             max-width: 300px;
             width: 100%;
