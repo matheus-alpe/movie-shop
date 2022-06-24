@@ -1,0 +1,39 @@
+@use 'resets';
+@use 'variables';
+@use 'fonts';
+
+#app {
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    position: relative;
+    min-height: 100vh;
+
+    .header {
+        background-color: var(--bg-secondary);
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        .content {
+            display: flex;
+            max-width: 70vw;
+        }
+    }
+
+    .container {
+        min-height: 100vh;
+        background-color: var(--bg-primary);
+        position: relative;
+
+        .fixed-aside {
+            position: fixed;
+            right: 0;
+            top: 100px;
+            bottom: 0;
+            max-width: 300px;
+            width: 100%;
+            border-left: var(--border);
+        }
+    }
+}

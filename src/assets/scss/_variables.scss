@@ -1,0 +1,16 @@
+:root {
+    --bg-primary: #fff;
+    --bg-secondary: #8dd7cf;
+    --bg-tertiary: #6a75f5;
+    --bg-quaternary: #fbe192;
+
+    --color-primary: #293845;
+    --color-secondary: #4b5c6b;
+    --color-tertiary: #fff;
+    --color-quaternary: #30ae9f;
+
+    --border-size: 2px;
+    --border-style: solid;
+    --border-color: #c3cfd9;
+    --border: var(--border-size) var(--border-style) var(--border-color);
+}
