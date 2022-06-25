@@ -11,9 +11,9 @@
             </div>
 
             <nav class="actions">
-                <span aria-label="Favoritos" title="Favoritos" class="material-icons md-30 md-light">favorite</span>
+                <span @click="handleModal('favorite')" aria-label="Favoritos" title="Favoritos" class="material-icons md-30 md-light">favorite</span>
                 
-                <span class="cart" title="Carrinho">
+                <span @click="handleModal('cart')" class="cart" title="Carrinho">
                     <span aria-label="Carrinho" class="material-icons md-30 md-light">shopping_cart</span>
                     <p class="badge">22</p>
                 </span>
@@ -23,10 +23,25 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+
 export default {
     name: 'HeaderDot',
     props: {
         msg: String,
     },
+
+    computed: {
+        ...mapState(['showAsideModal'])
+    },
+
+    methods: {
+        ...mapActions(['openModal']),
+
+        handleModal(name) {
+            if (this.showAsideModal === name) name = '';
+            this.openModal(name);
+        }
+    }
 };
 </script>

@@ -4,7 +4,7 @@
             <router-view />
         </div>
 
-        <fixed-aside class="cart-modal" v-if="true">
+        <fixed-aside class="cart-modal" v-show="showCart">
             <div class="aside-header">
                 <h2>Meu Carrinho</h2>
                 <button class="button" title="Esvaziar carrinho">Esvaziar</button>
@@ -24,7 +24,7 @@
             </div>
         </fixed-aside>
 
-        <fixed-aside class="favorite-modal" v-if="true">
+        <fixed-aside class="favorite-modal" v-show="showFavorite">
             <div class="aside-header">
                 <h2>Meus Favoritos</h2>
                 <button class="button" title="Esvaziar favoritos">Esvaziar</button>
@@ -40,14 +40,29 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import FixedAside from '@/views/FixedAsideView.vue';
 import CartItem from '@/components/BasketItem.vue';
 
 export default {
     name: 'ContainerView',
+    
     components: {
         FixedAside,
         CartItem
     },
+
+    computed: {
+        ...mapState(['showAsideModal']),
+
+        showFavorite() {
+            return this.showAsideModal === 'favorite';
+        },
+        
+        showCart() {
+            return this.showAsideModal === 'cart';
+        }
+    }
 };
 </script>

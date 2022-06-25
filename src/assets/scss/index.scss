@@ -83,7 +83,7 @@
 }
 
 .container {
-    padding: 40px 0;
+    padding: 40px 10px;
     background-color: var(--bg-primary);
     position: relative;
 }
@@ -378,5 +378,34 @@
                 width: 100%;
             }
         }
+    }
+}
+
+@media (max-width: 812px) {
+    #app {
+        --header-height: 110px
+    }
+
+    .header {
+        padding: 10px 15px;
+        
+        .content {
+            flex-wrap: wrap;
+
+            .logo,
+            .actions {
+                width: 50%;
+                flex: unset;
+            }
+
+            .search-input {
+                order: 2;
+            }
+        }
+    }
+
+    .products {
+        grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+        gap: 20px;
     }
 }
