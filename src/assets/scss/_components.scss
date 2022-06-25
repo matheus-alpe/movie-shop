@@ -15,4 +15,18 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    &.buy {
+        width: 90%;
+        margin: 10px auto;
+        background-color: var(--bg-tertiary);
+        border-radius: var(--border-radius);
+        color: var(--color-tertiary);
+        padding: 10px 0;
+    }
+
+    &.disabled {
+        opacity: .5;
+        cursor: none;
+    }
 }
