@@ -32,6 +32,8 @@
 
             <ul class="basket-products scroll">
                 <cart-item :is-cart-item="false" />
+                <cart-item :is-cart-item="false" />
+                <cart-item :is-cart-item="false" />
             </ul>
         </fixed-aside>
     </div>

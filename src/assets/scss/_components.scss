@@ -8,6 +8,25 @@
     border-radius: var(--border-radius);
 }
 
+.custom-input {
+    position: relative;
+    display: block;
+
+    .placeholder {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background-color: var(--bg-primary);
+        transition: all .2s;
+
+        &.focused {
+            top: 0;
+            font-size: .8rem;
+        }
+    }
+}
+
 .button {
     all: unset;
     box-sizing: border-box;
