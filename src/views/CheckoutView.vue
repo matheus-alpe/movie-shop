@@ -2,7 +2,7 @@
     <div class="checkout">
         <h2 class="title">Finalizar Compra</h2>
 
-        <form @submit.prevent="">
+        <form class="register" @submit.prevent="">
             <div class="grid-column form">
                 <input-custom id="name" label="Nome Completo" />
 
@@ -54,18 +54,22 @@
                 </div>
             </div>
         </form>
+
+        <modal-action />
     </div>
 </template>
 
 <script>
 import BasketItem from '@/components/BasketItem.vue';
 import InputCustom from '@/components/InputCustom.vue';
+import ModalAction from '@/components/ModalAction.vue';
 
 export default {
     name: 'CheckoutView',
     components: {
         BasketItem,
         InputCustom,
+        ModalAction,
     },
 };
 </script>

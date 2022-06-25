@@ -84,7 +84,6 @@
 
 .container {
     padding: 40px 0;
-    min-height: 100vh;
     background-color: var(--bg-primary);
     position: relative;
 }
@@ -286,12 +285,8 @@
 }
 
 .checkout {
-    .title {
-        font-weight: 500;
-        margin-bottom: 40px;
-    }
 
-    form {
+    .register {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10%;
@@ -357,6 +352,30 @@
                 .buy {
                     margin-bottom: 0;
                 }
+            }
+        }
+    }
+
+    .modal-container {
+        display: grid;
+        place-items: center;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        inset: 0;
+        top: calc(0px - var(--header-height));
+        z-index: 100;
+
+        .modal-content {
+            text-align: center;
+            border-radius: var(--border-radius);
+            border: var(--border);
+            background-color: var(--bg-primary);
+            padding: 20px;
+
+
+            .buy {
+                margin: 40px 0 0;
+                width: 100%;
             }
         }
     }
