@@ -7,7 +7,7 @@
         <fixed-aside class="cart-modal" v-if="true">
             <div class="aside-header">
                 <h2>Meu Carrinho</h2>
-                <button class="button">Esvaziar</button>
+                <button class="button" title="Esvaziar carrinho">Esvaziar</button>
             </div>
 
             <ul class="basket-products scroll">
@@ -27,7 +27,7 @@
         <fixed-aside class="favorite-modal" v-if="true">
             <div class="aside-header">
                 <h2>Meus Favoritos</h2>
-                <button class="button">Esvaziar</button>
+                <button class="button" title="Esvaziar favoritos">Esvaziar</button>
             </div>
 
             <ul class="basket-products scroll">

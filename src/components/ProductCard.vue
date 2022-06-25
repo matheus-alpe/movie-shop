@@ -12,7 +12,7 @@
         </div>
 
         <div class="info">
-            <p class="name">Nome do Filme</p>
+            <p class="name" title="nome do filme">Nome do Filme</p>
 
             <p class="row">
                 <span class="rating">
@@ -26,7 +26,7 @@
             <p class="price">R$ 79.99</p>
         </div>
 
-        <button class="button buy">Adicionar</button>
+        <button class="button buy" title="Adicionar ao carrinho">Adicionar</button>
     </li>
 </template>
 
