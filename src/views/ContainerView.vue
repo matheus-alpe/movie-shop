@@ -1,30 +1,51 @@
 <template>
-  <div class="container">
+    <div class="container">
+        <div class="content">
+            <router-view />
+        </div>
 
-    <div class="content">
-      <router-view/>
+        <fixed-aside class="cart-modal" v-if="true">
+            <div class="aside-header">
+                <h2>Meu Carrinho</h2>
+                <button class="button">Esvaziar</button>
+            </div>
+
+            <ul class="basket-products scroll">
+                <cart-item />
+            </ul>
+
+            <div class="summary">
+                <p class="total">
+                    <span>Total:</span>
+                    <span class="final-value">R$ 19,98</span>
+                </p>
+
+                <button class="button buy">Finalizar compra</button>
+            </div>
+        </fixed-aside>
+
+        <fixed-aside class="favorite-modal" v-if="true">
+            <div class="aside-header">
+                <h2>Meus Favoritos</h2>
+                <button class="button">Esvaziar</button>
+            </div>
+
+            <ul class="basket-products scroll">
+                <cart-item :is-cart-item="false" />
+            </ul>
+        </fixed-aside>
     </div>
-
-    <fixed-aside>
-        <h2>Meu Carrinho</h2>
-        <ul>
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-        </ul>
-
-        <button class="button buy">Finalizar compra</button>
-    </fixed-aside>
-  </div>
 </template>
 
 <script>
-import FixedAside from '@/views/FixedAsideView.vue'
+import FixedAside from '@/views/FixedAsideView.vue';
+import CartItem from '@/components/BasketItem.vue';
 
 export default {
-  name: 'ContainerView',
-  components: {
-    FixedAside
-  }
-}
+    name: 'ContainerView',
+    components: {
+        FixedAside,
+        CartItem
+    },
+};
 </script>

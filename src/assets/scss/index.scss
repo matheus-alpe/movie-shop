@@ -8,12 +8,12 @@
     grid-template-rows: var(--header-height) 1fr;
     position: relative;
     min-height: 100vh;
+}
 
-    .content {
-        max-width: var(--max-width);
-        width: 100%;
-        margin: 0 auto;
-    }
+.content {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
 }
 
 .header {
@@ -31,7 +31,7 @@
         height: 100%;
 
         .logo {
-            color: var(--color-tertiary);
+            color: var(--color-secondary);
             flex: 1;
         }
 
@@ -87,32 +87,70 @@
     min-height: 100vh;
     background-color: var(--bg-primary);
     position: relative;
+}
 
-    .fixed-aside {
-        background-color: var(--bg-primary);
-        position: fixed;
-        right: 0;
-        top: var(--header-height);
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        max-width: 300px;
-        width: 100%;
-        padding: 10px;
-        border-left: var(--border);
-        z-index: 2;
+.fixed-aside {
+    background-color: var(--bg-primary);
+    position: fixed;
+    right: 0;
+    top: var(--header-height);
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    width: 100%;
+    padding: 10px;
+    border: var(--border);
+    z-index: 2;
 
-        ul {
-            flex: 1;
+
+    &.cart-modal {
+        .summary {
+            .total {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 25px;
+
+                .final-value {
+                    font-weight: bold;
+                    font-size: 1.125rem;
+                }
+            }
+
+            .buy {
+                width: 100%;
+                font-size: 1.125rem;
+            }
         }
     }
 
-    .products {
-        display: grid;
-        grid-auto-rows: 1fr;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 40px 60px;
+    .aside-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            font-weight: 500;
+        }
+
+        .button {
+            color: var(--color-tertiary);
+            border-bottom: var(--border-size) var(--border-style) #c7c3fb;
+        }
     }
+
+    .basket-products {
+        flex: 1;
+        margin: 25px 0;
+    }
+}
+
+.products {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px 60px;
 }
 
 .product-item {
@@ -142,14 +180,13 @@
             overflow: hidden;
 
             img {
-                mix-blend-mode: unset;
                 width: 100%;
                 max-height: 280px;
                 object-fit: cover;
             }
 
             figcaption {
-                color: var(--color-tertiary);
+                color: var(--color-secondary);
                 background-color: rgba(0, 0, 0, 0.3);
                 position: absolute;
                 bottom: 0;
@@ -176,6 +213,7 @@
             text-overflow: ellipsis;
             font-weight: bold;
             font-size: 1rem;
+            color: var(--color-primary-dark);
         }
 
         .row {
@@ -190,8 +228,53 @@
                 justify-content: center;
                 gap: 5px;
                 font-weight: bold;
-                color: var(--color-secondary);
+
+                .material-icons {
+                    color: var(--color-primary);
+                }
             }
+        }
+    }
+}
+
+.basket-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &:not(:first-of-type):not(:last-of-type) {
+        margin: 10px 0;
+    }
+
+    .thumbnail {
+        position: relative;
+        width: 40px;
+        height: 40px;
+
+        img {
+            width: 40px;
+            height: 40px;
+
+            object-fit: cover;
+        }
+    }
+
+    .name {
+        max-width: 30%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1rem;
+        color: var(--color-primary-dark);
+    }
+
+    .material-icons {
+        cursor: pointer;
+
+        &.cart {
+            color: var(--color-quaternary);
         }
     }
 }

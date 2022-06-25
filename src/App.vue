@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import HeaderDot from '@/components/HeaderDot.vue';
+import HeaderDot from '@/components/HeaderSticky.vue';
 import ContainerView from '@/views/ContainerView.vue';
 export default {
     components: {

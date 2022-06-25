@@ -6,7 +6,7 @@
             </div>
 
             <figure>
-                <img src="movie-image.png" alt="name movie" @error="handler" />
+                <img src="movie-image.png" alt="name movie" @error="fallbackHandler" />
                 <figcaption>7 de Janeiro, 2019</figcaption>
             </figure>
         </div>
@@ -34,7 +34,7 @@
 export default {
     name: 'ProductCard',
     methods: {
-        handler(event) {
+        fallbackHandler(event) {
             event.target.src = require('@/assets/images/fallback.png');
         }
     }

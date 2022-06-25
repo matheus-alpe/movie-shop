@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ListProducts from '@/components/ListProductsDot.vue';
+import ListProducts from '@/components/ListProducts.vue';
 
 export default {
     name: 'HomeView',
