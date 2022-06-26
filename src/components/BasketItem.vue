@@ -53,12 +53,6 @@ export default {
         }
     },
 
-    watch: {
-        'product.quantity'(newValue) {
-            console.log('###', newValue);
-        }
-    },
-
     mixins: [productMixin],
 };
 </script>

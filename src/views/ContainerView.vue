@@ -78,7 +78,6 @@ export default {
         ...mapState(['showAsideModal']),
         ...mapState('product', ['product']),
         ...mapState('favorite', ['favoriteList']),
-        ...mapState('cart', ['cartList']),
         ...mapGetters('cart', ['getUniqueProductsList', 'finalPrice']),
 
         hasItemInCart() {

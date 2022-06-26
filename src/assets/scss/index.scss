@@ -153,9 +153,12 @@
 }
 
 .product-item {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     border: var(--border);
     border-radius: var(--border-radius);
+    overflow: hidden;
 
     .thumbnail {
         position: relative;
@@ -247,6 +250,12 @@
 
         .price {
             font-size: 0.938rem;
+        }
+    }
+
+    .buy {
+        &.disabled {
+            margin-top: auto;
         }
     }
 }
@@ -374,7 +383,7 @@
             .info {
                 .final-value {
                     font-size: 1.5rem;
-                    font-weight: 500;
+                    font-weight: bold;
                 }
 
                 .buy {

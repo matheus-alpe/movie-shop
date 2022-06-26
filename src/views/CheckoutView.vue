@@ -40,36 +40,76 @@
                 </div>
 
                 <ul class="basket-products scroll">
-                    <basket-item :is-cart-item="true" />
-                    <basket-item :is-cart-item="true" />
+                    <basket-item
+                        v-for="cartProduct in getUniqueProductsList"
+                        :key="cartProduct.id"
+                        :product="cartProduct"
+                    />
                 </ul>
 
                 <div class="info">
                     <p class="total">
                         <span>Total:</span>
-                        <span class="final-value">R$ 19,98</span>
+                        <span class="final-value">{{ finalPrice }}</span>
                     </p>
 
-                    <button class="button buy">Finalizar</button>
+                    <button 
+                        class="button buy"
+                        :class="{ disabled: !hasItemInCart }"
+                        @click="buyAction"
+                    >
+                        Finalizar
+                    </button>
                 </div>
             </div>
         </form>
 
-        <modal-action />
+        <modal-action v-if="showModal" :callback="handleRedirect" />
     </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 import BasketItem from '@/components/BasketItem.vue';
 import InputCustom from '@/components/InputCustom.vue';
 import ModalAction from '@/components/ModalAction.vue';
 
 export default {
     name: 'CheckoutView',
+
     components: {
         BasketItem,
         InputCustom,
         ModalAction,
     },
+
+    data() {
+        return {
+            showModal: false
+        }
+    },
+
+    computed: {
+        ...mapGetters('cart', ['getUniqueProductsList', 'finalPrice']),
+
+        hasItemInCart() {
+            return Boolean(this.getUniqueProductsList.length);
+        },
+    },
+
+    methods: {
+        ...mapActions('cart', ['setCartList']),
+
+        buyAction() {
+            this.showModal = true;
+        },
+
+        handleRedirect() {
+            this.showModal = false;
+            this.setCartList([]);
+            this.$router.push('/');
+        }
+    }
 };
 </script>

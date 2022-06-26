@@ -52,9 +52,7 @@ export default {
 
     methods: {
         handlerFocus() {
-            console.log('has focused');
             this.focus = !this.focus;
-            console.log('value', this.focus);
         }
     },
 

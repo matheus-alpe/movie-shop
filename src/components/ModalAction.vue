@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="handleRedirect" class="modal-container">
+    <form @submit.prevent="callback" @click="callback" class="modal-container">
         <div class="modal-content">
             <h3 class="title">Obrigado {user_name}!</h3>
             <p class="message">Sua compra foi finalizada com sucesso!</p>
@@ -14,10 +14,8 @@
 export default {
     name: 'ModalAction',
     
-    methods: {
-        handleRedirect() {
-            this.$router.push('/')
-        }
+    props: {
+        callback: Function
     }
 }
 </script>

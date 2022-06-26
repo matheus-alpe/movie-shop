@@ -35,7 +35,7 @@
                         class="material-icons md-30 md-light"
                         >shopping_cart</span
                     >
-                    <p class="badge">{{ totalQuantity }}</p>
+                    <p class="badge" v-show="totalQuantity">{{ totalQuantity }}</p>
                 </span>
             </nav>
         </div>

@@ -1,7 +1,7 @@
 <template>
     <li class="product-item">
         <div class="thumbnail">
-            <div class="wishlist">
+            <div class="wishlist" v-if="rating">
                 <span
                     v-if="isFavorite"
                     @click="removeFavorite(product)"
@@ -11,10 +11,10 @@
                 >
                     favorite
                 </span>
-    
+
                 <span
                     v-else
-                     @click="addFavorite(product)"
+                    @click="addFavorite(product)"
                     class="material-icons"
                     aria-label="Favoritar"
                     title="Favoritar"
@@ -45,12 +45,17 @@
                 <span class="genre" :title="genre.name">{{ genre.name }}</span>
             </p>
 
-            <p class="price">{{ priceFormated }}</p>
+            <p class="price" v-if="rating">{{ priceFormated }}</p>
         </div>
 
         <!-- TO-DO: implement a visual feedback on add -->
-        <button class="button buy" title="Adicionar ao carrinho" @click="addCart(product)">
-            Adicionar
+        <button
+            class="button buy"
+            :class="{ disabled: !rating }"
+            title="Adicionar ao carrinho"
+            @click="handleBuy(product)"
+        >
+            {{ rating ? 'Adicionar': 'EM BREVE' }}
         </button>
     </li>
 </template>
@@ -62,5 +67,12 @@ export default {
     name: 'ProductCard',
 
     mixins: [productMixin],
+
+    methods: {
+        handleBuy(product) {
+            if (this.rating) return;
+            this.addCart(product);
+        }
+    }
 };
 </script>
