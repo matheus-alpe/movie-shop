@@ -2,9 +2,18 @@ export default {
     namespaced: true,
 
     state: {
-        product: {
-            name: 'Teste',
-            release: '2002/04/02'
-        }
-    }
+        productList: []
+    },
+
+    mutations: {
+        SET_PRODUCT_LIST(state, payload) {
+            state.productList = payload;
+        },
+    },
+
+    actions: {
+        setProductList({ commit }, payload) {
+            commit('SET_PRODUCT_LIST', payload);
+        },
+    },
 }
