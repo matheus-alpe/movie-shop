@@ -106,14 +106,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 20px 0;
 
         h2 {
             font-weight: 500;
+            width: 91%;
         }
 
         .button {
             color: var(--color-tertiary);
             border-bottom: var(--border-size) var(--border-style) #c7c3fb;
+            font-size: 0.875rem;
         }
     }
 }
@@ -184,7 +188,7 @@
                 left: 0;
                 right: 0;
                 padding: 5px 0;
-                font-size: .875rem;
+                font-size: 0.875rem;
                 font-weight: 500;
             }
         }
@@ -230,7 +234,7 @@
 
 .basket-products {
     flex: 1;
-    margin: 25px 0;
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -262,12 +266,12 @@
         -webkit-line-clamp: 1;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: .875rem;
+        font-size: 0.875rem;
         color: var(--color-primary-dark);
     }
 
     .price {
-        font-size: .875rem;
+        font-size: 0.875rem;
     }
 
     .material-icons {
@@ -279,18 +283,17 @@
         }
 
         &.remove {
-            color: var(--color-primary)
+            color: var(--color-primary);
         }
     }
 }
 
 .checkout {
-
     .register {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10%;
-        
+
         .grid-row,
         .basket-item {
             display: grid;
@@ -323,23 +326,23 @@
             gap: 20px;
 
             .basket-products {
-               margin: 0;
-               max-height: 50vh;
+                margin: 0;
+                max-height: 50vh;
             }
 
             .basket-item {
                 --img-size: 50px;
-        
+
                 .name {
                     max-width: 100%;
                 }
-    
+
                 .quantity {
                     padding-left: 15px;
                 }
 
                 .remove {
-                    font-size:  1.25rem;
+                    font-size: 1.25rem;
                 }
             }
 
@@ -372,7 +375,6 @@
             background-color: var(--bg-primary);
             padding: 20px;
 
-
             .buy {
                 margin: 40px 0 0;
                 width: 100%;
@@ -383,12 +385,12 @@
 
 @media (max-width: 812px) {
     #app {
-        --header-height: 110px
+        --header-height: 110px;
     }
 
     .header {
         padding: 10px 15px;
-        
+
         .content {
             flex-wrap: wrap;
 
@@ -407,5 +409,16 @@
     .products {
         grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
         gap: 20px;
+    }
+
+    .checkout {
+        .register {
+            grid-template-columns: 1fr;
+            gap: 0;
+
+            .summary-header {
+                margin-top: 40px;
+            }
+        }
     }
 }

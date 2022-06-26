@@ -7,7 +7,7 @@
         <fixed-aside class="cart-modal" v-show="showCart">
             <div class="aside-header">
                 <h2>Meu Carrinho</h2>
-                <button class="button" title="Esvaziar carrinho">Esvaziar</button>
+                <span class="material-icons" @click="openModal('')">close</span>
             </div>
 
             <ul class="basket-products scroll">
@@ -20,14 +20,16 @@
                     <span class="final-value">R$ 19,98</span>
                 </p>
 
-                <button class="button buy">Finalizar compra</button>
+                <button class="button buy" @click="handleCartRedirect">
+                    Finalizar compra
+                </button>
             </div>
         </fixed-aside>
 
         <fixed-aside class="favorite-modal" v-show="showFavorite">
             <div class="aside-header">
                 <h2>Meus Favoritos</h2>
-                <button class="button" title="Esvaziar favoritos">Esvaziar</button>
+                <span class="material-icons" @click="openModal('')">close</span>
             </div>
 
             <ul class="basket-products scroll">
@@ -40,17 +42,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex';
 
 import FixedAside from '@/views/FixedAsideView.vue';
 import CartItem from '@/components/BasketItem.vue';
 
 export default {
     name: 'ContainerView',
-    
+
     components: {
         FixedAside,
-        CartItem
+        CartItem,
     },
 
     computed: {
@@ -59,10 +61,19 @@ export default {
         showFavorite() {
             return this.showAsideModal === 'favorite';
         },
-        
+
         showCart() {
             return this.showAsideModal === 'cart';
-        }
-    }
+        },
+    },
+
+    methods: {
+        ...mapActions(['openModal']),
+
+        handleCartRedirect() {
+            this.openModal('');
+            this.$router.push('/checkout');
+        },
+    },
 };
 </script>
