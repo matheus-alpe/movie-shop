@@ -27,10 +27,14 @@
             <div class="summary">
                 <p class="total">
                     <span>Total:</span>
-                    <span class="final-value">R$ 19,98</span>
+                    <span class="final-value">{{ finalPrice }}</span>
                 </p>
 
-                <button class="button buy" @click="handleCartRedirect">
+                <button 
+                    class="button buy"
+                    :class="{ disabled: !hasItemInCart }"
+                    @click="handleCartRedirect"
+                >
                     Finalizar compra
                 </button>
             </div>
@@ -75,7 +79,11 @@ export default {
         ...mapState('product', ['product']),
         ...mapState('favorite', ['favoriteList']),
         ...mapState('cart', ['cartList']),
-        ...mapGetters('cart', ['getUniqueProductsList']),
+        ...mapGetters('cart', ['getUniqueProductsList', 'finalPrice']),
+
+        hasItemInCart() {
+            return Boolean(this.getUniqueProductsList.length);
+        },
 
         showFavorite() {
             return this.showAsideModal === 'favorite';
@@ -90,6 +98,7 @@ export default {
         ...mapActions(['openModal']),
 
         handleCartRedirect() {
+            if (!this.hasItemInCart) return;
             this.openModal('');
             this.$router.push('/checkout');
         },

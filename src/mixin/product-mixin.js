@@ -74,4 +74,8 @@ export default {
             event.target.src = require('@/assets/images/fallback.png');
         },
     },
+
+    created() {
+        this.product.price = this.price;
+    },
 };

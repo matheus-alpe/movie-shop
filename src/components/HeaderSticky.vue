@@ -35,7 +35,7 @@
                         class="material-icons md-30 md-light"
                         >shopping_cart</span
                     >
-                    <p class="badge">22</p>
+                    <p class="badge">{{ totalQuantity }}</p>
                 </span>
             </nav>
         </div>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState, mapGetters } from 'vuex';
 
 export default {
     name: 'HeaderDot',
@@ -53,6 +53,8 @@ export default {
 
     computed: {
         ...mapState(['showAsideModal']),
+        ...mapGetters('cart', ['totalQuantity']),
+
     },
 
     methods: {

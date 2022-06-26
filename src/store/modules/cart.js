@@ -12,7 +12,18 @@ export default {
 
         getUniqueProductsList: ({ cartList }) => [
             ...new Map(cartList.map((item) => [item["id"], item])).values(),
-        ]
+        ],
+
+        finalPrice: ({ cartList }) => {
+            const finalValue =  cartList.reduce((acumulator, actualProduct) => acumulator + actualProduct.price, 0);
+            return finalValue.toLocaleString('pt-BR', {
+                minimumFractionDigits: 2,
+                style: 'currency',
+                currency: 'BRL',
+            });
+        },
+
+        totalQuantity: ({ cartList }) => cartList.length,
     },
 
     mutations: {
