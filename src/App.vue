@@ -7,11 +7,13 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { localStorage } from '@/utils';
+
 import HeaderDot from '@/components/HeaderSticky.vue';
 import ContainerView from '@/views/ContainerView.vue';
 
 import movieService from '@/services/movie-service.js';
-import { mapActions } from 'vuex';
 
 export default {
     components: {
@@ -22,9 +24,15 @@ export default {
     methods: {
         ...mapActions('product', ['setProductList']),
         ...mapActions('genre', ['setGenreList']),
+        ...mapActions('favorite', ['setFavoriteList']),
     },
 
     async created() {
+        let favoriteList = localStorage.get('favorite_list');
+        favoriteList = favoriteList && favoriteList.length ? favoriteList : [];
+        this.setFavoriteList(favoriteList);
+
+
         // TO-DO: refactor this part
         try {
             const { data } = await movieService.getAllGenresTypes();

@@ -4,10 +4,11 @@
             <router-view />
         </div>
 
+        <!-- TO-DO: refact this component -->
         <fixed-aside class="cart-modal" v-show="showCart">
             <div class="aside-header">
                 <h2>Meu Carrinho</h2>
-                <span class="material-icons" @click="openModal('')">close</span>
+                <span class="material-icons close" @click="openModal('')">close</span>
             </div>
 
             <ul class="basket-products scroll">
@@ -29,7 +30,7 @@
         <fixed-aside class="favorite-modal" v-show="showFavorite">
             <div class="aside-header">
                 <h2>Meus Favoritos</h2>
-                <span class="material-icons" @click="openModal('')">close</span>
+                <span class="material-icons close" @click="openModal('')">close</span>
             </div>
 
             <ul class="basket-products scroll">

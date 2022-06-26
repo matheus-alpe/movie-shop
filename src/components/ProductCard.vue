@@ -2,7 +2,25 @@
     <li class="product-item">
         <div class="thumbnail">
             <div class="wishlist">
-                <span class="material-icons">favorite_border</span>
+                <span
+                    v-if="isFavorite"
+                    @click="removeFavoite(product)"
+                    class="material-icons"
+                    aria-label="Remover Favorito"
+                    title="Remover Favorito"
+                >
+                    favorite
+                </span>
+    
+                <span
+                    v-else
+                     @click="addFavorite(product)"
+                    class="material-icons"
+                    aria-label="Favoritar"
+                    title="Favoritar"
+                >
+                    favorite_border
+                </span>
             </div>
 
             <figure>
@@ -37,12 +55,11 @@
 </template>
 
 <script>
-import utilMixin from '@/mixin/util-mixin';
 import productMixin from '@/mixin/product-mixin';
 
 export default {
     name: 'ProductCard',
 
-    mixins: [utilMixin, productMixin],
+    mixins: [productMixin],
 };
 </script>

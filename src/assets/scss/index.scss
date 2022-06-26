@@ -114,6 +114,10 @@
             width: 91%;
         }
 
+        .close {
+            cursor: pointer;
+        }
+
         .button {
             color: var(--color-tertiary);
             border-bottom: var(--border-size) var(--border-style) #c7c3fb;
@@ -164,6 +168,7 @@
             color: var(--color-quaternary);
             z-index: 1;
             cursor: pointer;
+            filter: drop-shadow(0 0 2px black);
         }
 
         figure {
@@ -183,7 +188,7 @@
 
             figcaption {
                 color: var(--color-secondary);
-                background-color: rgba(0, 0, 0, 0.3);
+                background-color: rgba(0, 0, 0, 0.5);
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -236,12 +241,12 @@
                 -webkit-line-clamp: 1;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                font-size: .875rem;
+                font-size: 0.875rem;
             }
         }
 
         .price {
-            font-size: .938rem;
+            font-size: 0.938rem;
         }
     }
 }

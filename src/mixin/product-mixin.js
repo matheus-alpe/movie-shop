@@ -1,4 +1,5 @@
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
+import { string as stringUtil } from '@/utils';
 
 export default {
     props: {
@@ -18,7 +19,7 @@ export default {
         releaseDate() {
             const date = new Date(this.product.release_date);
             const day = date.getUTCDate();
-            let month = this.capitalizeIt(
+            let month = stringUtil.capitalizeIt(
                 date.toLocaleString('pt-BR', { month: 'long' })
             );
             const year = date.getUTCFullYear();
@@ -31,6 +32,10 @@ export default {
 
         genre() {
             return this.getGenreById()(this.product.genre_ids[0]);
+        },
+
+        isFavorite() {
+            return Boolean(this.getFavoriteById()(this.product.id));
         },
 
         price() {
@@ -54,13 +59,11 @@ export default {
 
     methods: {
         ...mapGetters('genre', ['getGenreById']),
+        ...mapGetters('favorite', ['getFavoriteById']),
+        ...mapActions('favorite', ['addFavorite', 'removeFavoite']),
 
         fallbackHandler(event) {
             event.target.src = require('@/assets/images/fallback.png');
-        },
-
-        capitalizeIt(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
         },
     },
 };
