@@ -57,6 +57,7 @@ export default {
 
     computed: {
         ...mapState(['showAsideModal']),
+        ...mapState('product', ['product']),
 
         showFavorite() {
             return this.showAsideModal === 'favorite';

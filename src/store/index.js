@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import modules from './modules';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -10,13 +12,14 @@ export default new Vuex.Store({
     getters: {},
     mutations: {
         SET_SHOW_ASIDE_MODAL(state, payload) {
-            state.showAsideModal = payload
-        }
+            state.showAsideModal = payload;
+        },
     },
     actions: {
         openModal({ commit }, payload) {
-            commit('SET_SHOW_ASIDE_MODAL', payload)
-        }
+            commit('SET_SHOW_ASIDE_MODAL', payload);
+        },
     },
-    modules: {},
+
+    modules,
 });
