@@ -161,6 +161,7 @@
             position: absolute;
             right: 10px;
             top: 10px;
+            color: var(--color-quaternary);
             z-index: 1;
             cursor: pointer;
         }
@@ -228,6 +229,19 @@
                     color: var(--color-primary);
                 }
             }
+
+            .genre {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: .875rem;
+            }
+        }
+
+        .price {
+            font-size: .938rem;
         }
     }
 }
@@ -409,6 +423,14 @@
     .products {
         grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
         gap: 20px;
+    }
+
+    .product-item {
+        .info {
+            .row .genre {
+                max-width: 65px;
+            }
+        }
     }
 
     .checkout {

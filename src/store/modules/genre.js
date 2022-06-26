@@ -5,6 +5,10 @@ export default {
         genreList: []
     },
 
+    getters: {
+        getGenreById: ({ genreList }) => (genreId) => genreList.find(genre => genre.id === genreId),
+    },
+
     mutations: {
         SET_GENRE_LIST(state, payload) {
             state.genreList = payload;

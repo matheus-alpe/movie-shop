@@ -6,37 +6,43 @@
             </div>
 
             <figure>
-                <img src="movie-image.png" alt="name movie" @error="fallbackHandler" />
-                <figcaption>7 de Janeiro, 2019</figcaption>
+                <img
+                    :src="imgSrc"
+                    :alt="'Poster image from ' + product.title"
+                    @error="fallbackHandler"
+                />
+                <figcaption>{{ releaseDate }}</figcaption>
             </figure>
         </div>
 
         <div class="info">
-            <p class="name" title="nome do filme">Nome do Filme</p>
+            <p class="name" :title="product.title">{{ product.title }}</p>
 
             <p class="row">
                 <span class="rating">
                     <span class="material-icons">star</span>
-                    <span class="value">7</span>
+                    <span class="value">{{ rating }}</span>
                 </span>
 
-                <span class="genre">Gênero</span>
+                <span class="genre" :title="genre.name">{{ genre.name }}</span>
             </p>
 
-            <p class="price">R$ 79.99</p>
+            <p class="price">{{ priceFormated }}</p>
         </div>
 
-        <button class="button buy" title="Adicionar ao carrinho">Adicionar</button>
+        <button class="button buy" title="Adicionar ao carrinho">
+            Adicionar
+        </button>
     </li>
 </template>
 
 <script>
+import utilMixin from '@/mixin/util-mixin';
+import productMixin from '@/mixin/product-mixin';
+
 export default {
     name: 'ProductCard',
-    methods: {
-        fallbackHandler(event) {
-            event.target.src = require('@/assets/images/fallback.png');
-        }
-    }
+
+    mixins: [utilMixin, productMixin],
 };
 </script>

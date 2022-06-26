@@ -29,7 +29,6 @@ export default {
         try {
             const { data } = await movieService.getAllGenresTypes();
             this.setGenreList(data.genres);
-            console.log(data);
         } catch (error) {
             // TO-DO: implement error handler
             console.log(error);
@@ -38,7 +37,6 @@ export default {
         try {
             const { data } = await movieService.getTrendings();
             this.setProductList(data.results);
-            console.log(data.results);
         } catch (error) {
             // TO-DO: implement error handler
             console.log(error);

@@ -1,6 +1,8 @@
 <template>
     <ul class="products">
-        <product-card v-for="i in 10" :key="i"/>
+        <product-card v-for="product in products" :key="product.id" :product="product"/>
+
+        <!-- TO-DO: pagination -->
     </ul>
 </template>
 
@@ -11,6 +13,10 @@ export default {
     name: 'ListProducts',
     components: {
         ProductCard
+    },
+
+    props: {
+        products: Array
     }
 };
 </script>
