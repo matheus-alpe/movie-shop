@@ -60,7 +60,7 @@ export default {
     methods: {
         ...mapGetters('genre', ['getGenreById']),
         ...mapGetters('favorite', ['getFavoriteById']),
-        ...mapActions('favorite', ['addFavorite', 'removeFavoite']),
+        ...mapActions('favorite', ['addFavorite', 'removeFavorite']),
 
         fallbackHandler(event) {
             event.target.src = require('@/assets/images/fallback.png');

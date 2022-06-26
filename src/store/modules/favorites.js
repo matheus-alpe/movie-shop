@@ -44,7 +44,7 @@ export default {
             dispatch('setFavoriteList', state.favoriteList);
         },
 
-        removeFavoite({ commit, dispatch, state }, payload) {
+        removeFavorite({ commit, dispatch, state }, payload) {
             const favoriteIndex = state.favoriteList.findIndex((favorite) => favorite.id === payload.id);
 
             commit('REMOVE_FAVORITE_PRODUCT', favoriteIndex);

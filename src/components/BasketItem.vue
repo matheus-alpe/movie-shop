@@ -1,36 +1,56 @@
 <template>
     <li class="basket-item">
         <div class="thumbnail">
-            <img src="movie-image.png" alt="name movie" @error="fallbackHandler" />
+            <img
+                :src="imgSrc"
+                :alt="'Poster image from ' + product.title"
+                @error="fallbackHandler"
+            />
         </div>
 
-        <p class="name" title="nome do filme">Nome do Filme</p>
+        <p class="name" :title="product.title">{{ product.title }}</p>
 
         <p class="quantity" v-if="isCartItem">1</p>
 
-        <p class="price">R$ 79.99</p>
+        <p class="price">{{ priceFormated }}</p>
 
-        <span title="Adicionar ao carrinho" class="material-icons cart" v-if="!isCartItem">shopping_cart</span>
+        <span
+            title="Adicionar ao carrinho"
+            class="material-icons cart"
+            v-if="!isCartItem"
+            >shopping_cart</span
+        >
 
-        <span title="Remover" class="material-icons remove">delete</span>
+        <span
+            title="Remover Favorito"
+            aria-label="Remover Favorito"
+            @click="removeHandler(product)"
+            class="material-icons remove"
+        >
+            delete
+        </span>
     </li>
 </template>
 
 <script>
+import productMixin from '@/mixin/product-mixin';
+
 export default {
     name: 'BasketItem',
 
     props: {
         isCartItem: {
             type: Boolean,
-            default: true
-        }
+            default: true,
+        },
     },
 
     methods: {
-        fallbackHandler(event) {
-            event.target.src = require('@/assets/images/fallback.png');
+        removeHandler(product) {
+            this.isCartItem ? console.log('cart remove handler: ', product) : this.removeFavorite(product);
         }
-    }
+    },
+
+    mixins: [productMixin],
 };
 </script>

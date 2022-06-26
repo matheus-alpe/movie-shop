@@ -279,14 +279,20 @@
     }
 
     .name {
-        max-width: 35%;
+        max-width: 100px;
+        width: 100%;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
         overflow: hidden;
         text-overflow: ellipsis;
+        text-align: left;
         font-size: 0.875rem;
         color: var(--color-primary-dark);
+    }
+    
+    .quantity {
+        font-size: 0.875rem;
     }
 
     .price {

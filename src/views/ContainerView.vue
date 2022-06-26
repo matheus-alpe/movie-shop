@@ -8,11 +8,20 @@
         <fixed-aside class="cart-modal" v-show="showCart">
             <div class="aside-header">
                 <h2>Meu Carrinho</h2>
-                <span class="material-icons close" @click="openModal('')">close</span>
+                <span
+                    class="material-icons close" 
+                    @click="openModal('')"
+                >
+                    close
+                </span>
             </div>
 
             <ul class="basket-products scroll">
-                <cart-item />
+                <basket-item
+                    v-for="favoriteProduct in favoriteList"
+                    :key="favoriteProduct.id"
+                    :product="favoriteProduct"
+                />
             </ul>
 
             <div class="summary">
@@ -30,13 +39,18 @@
         <fixed-aside class="favorite-modal" v-show="showFavorite">
             <div class="aside-header">
                 <h2>Meus Favoritos</h2>
-                <span class="material-icons close" @click="openModal('')">close</span>
+                <span class="material-icons close" @click="openModal('')"
+                    >close</span
+                >
             </div>
 
             <ul class="basket-products scroll">
-                <cart-item :is-cart-item="false" />
-                <cart-item :is-cart-item="false" />
-                <cart-item :is-cart-item="false" />
+                <basket-item
+                    :is-cart-item="false"
+                    v-for="favoriteProduct in favoriteList"
+                    :key="favoriteProduct.id"
+                    :product="favoriteProduct"
+                />
             </ul>
         </fixed-aside>
     </div>
@@ -46,19 +60,20 @@
 import { mapState, mapActions } from 'vuex';
 
 import FixedAside from '@/views/FixedAsideView.vue';
-import CartItem from '@/components/BasketItem.vue';
+import BasketItem from '@/components/BasketItem.vue';
 
 export default {
     name: 'ContainerView',
 
     components: {
         FixedAside,
-        CartItem,
+        BasketItem,
     },
 
     computed: {
         ...mapState(['showAsideModal']),
         ...mapState('product', ['product']),
+        ...mapState('favorite', ['favoriteList']),
 
         showFavorite() {
             return this.showAsideModal === 'favorite';

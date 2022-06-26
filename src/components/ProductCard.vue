@@ -4,7 +4,7 @@
             <div class="wishlist">
                 <span
                     v-if="isFavorite"
-                    @click="removeFavoite(product)"
+                    @click="removeFavorite(product)"
                     class="material-icons"
                     aria-label="Remover Favorito"
                     title="Remover Favorito"
