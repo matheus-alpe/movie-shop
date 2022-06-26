@@ -9,6 +9,9 @@
 <script>
 import HeaderDot from '@/components/HeaderSticky.vue';
 import ContainerView from '@/views/ContainerView.vue';
+
+import movieService from '@/services/movie-service.js'
+
 export default {
     components: {
         ContainerView,
@@ -16,14 +19,11 @@ export default {
     },
 
     async created() {
-        const apikey = process.env.VUE_APP_API_KEY || '';
-        const query = 'piratas';
-
-        const genres = await this.$axios.get(`genre/movie/list?api_key=${apikey}&language=pt-BR`)
-        const trending = await this.$axios.get(`/trending/movie/week?api_key=${apikey}&language=pt-BR`)
-        const searchResult = await this.$axios.get(`/search/movie?query=${query}&api_key=${apikey}&language=pt-BR`)
-        console.log(genres)
+        const genres = await movieService.getAllGenresTypes();
+        let trending = await movieService.getTrendings();
+        const searchResult = await movieService.searchByTerm('pirates')
         console.log(trending)
+        console.log(genres)
         console.log(searchResult)
     }
 };
