@@ -1,8 +1,8 @@
 <template>
     <div class="header">
         <div class="content">
-            <h1 class="logo" aria-label="Logo" @click="$router.push('/')">
-                LOGO
+            <h1 class="logo" aria-label="Logo">
+                <span @click="$router.push('/')">LOGO</span>
             </h1>
 
             <div class="search-input">

@@ -33,6 +33,10 @@
         .logo {
             color: var(--color-secondary);
             flex: 1;
+
+            span {
+                cursor: pointer;
+            }
         }
 
         .search-input {

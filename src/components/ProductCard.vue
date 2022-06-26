@@ -70,7 +70,7 @@ export default {
 
     methods: {
         handleBuy(product) {
-            if (this.rating) return;
+            if (!this.rating) return;
             this.addCart(product);
         }
     }
