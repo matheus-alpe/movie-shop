@@ -39,7 +39,6 @@ export default {
         },
 
         addFavorite({ commit, dispatch, state }, payload) {
-
             commit('ADD_FAVORITE_PRODUCT', payload);
             dispatch('setFavoriteList', state.favoriteList);
         },

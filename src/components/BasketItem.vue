@@ -10,16 +10,18 @@
 
         <p class="name" :title="product.title">{{ product.title }}</p>
 
-        <p class="quantity" v-if="isCartItem">1</p>
+        <p class="quantity" v-if="isCartItem">{{ quantity }}</p>
 
         <p class="price">{{ priceFormated }}</p>
 
         <span
+            v-if="!isCartItem"
+            @click="addCart(product)"
             title="Adicionar ao carrinho"
             class="material-icons cart"
-            v-if="!isCartItem"
-            >shopping_cart</span
         >
+            shopping_cart
+        </span>
 
         <span
             title="Remover Favorito"
@@ -47,7 +49,13 @@ export default {
 
     methods: {
         removeHandler(product) {
-            this.isCartItem ? console.log('cart remove handler: ', product) : this.removeFavorite(product);
+            this.isCartItem ? this.removeCart(product) : this.removeFavorite(product);
+        }
+    },
+
+    watch: {
+        'product.quantity'(newValue) {
+            console.log('###', newValue);
         }
     },
 

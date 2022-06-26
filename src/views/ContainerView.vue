@@ -18,9 +18,9 @@
 
             <ul class="basket-products scroll">
                 <basket-item
-                    v-for="favoriteProduct in favoriteList"
-                    :key="favoriteProduct.id"
-                    :product="favoriteProduct"
+                    v-for="cartProduct in getUniqueProductsList"
+                    :key="cartProduct.id"
+                    :product="cartProduct"
                 />
             </ul>
 
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapGetters } from 'vuex';
 
 import FixedAside from '@/views/FixedAsideView.vue';
 import BasketItem from '@/components/BasketItem.vue';
@@ -74,6 +74,8 @@ export default {
         ...mapState(['showAsideModal']),
         ...mapState('product', ['product']),
         ...mapState('favorite', ['favoriteList']),
+        ...mapState('cart', ['cartList']),
+        ...mapGetters('cart', ['getUniqueProductsList']),
 
         showFavorite() {
             return this.showAsideModal === 'favorite';

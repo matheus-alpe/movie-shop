@@ -8,7 +8,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import { localStorage } from '@/utils';
+import { localStorage, array as arrayUtil } from '@/utils';
 
 import HeaderDot from '@/components/HeaderSticky.vue';
 import ContainerView from '@/views/ContainerView.vue';
@@ -25,13 +25,15 @@ export default {
         ...mapActions('product', ['setProductList']),
         ...mapActions('genre', ['setGenreList']),
         ...mapActions('favorite', ['setFavoriteList']),
+        ...mapActions('cart', ['setCartList']),
     },
 
     async created() {
-        let favoriteList = localStorage.get('favorite_list');
-        favoriteList = favoriteList && favoriteList.length ? favoriteList : [];
+        const favoriteList = arrayUtil.safeArray(localStorage.get('favorite_list'));
         this.setFavoriteList(favoriteList);
 
+        const cartList = arrayUtil.safeArray(localStorage.get('cart_list'));
+        this.setCartList(cartList);
 
         // TO-DO: refactor this part
         try {

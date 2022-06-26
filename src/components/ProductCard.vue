@@ -48,7 +48,8 @@
             <p class="price">{{ priceFormated }}</p>
         </div>
 
-        <button class="button buy" title="Adicionar ao carrinho">
+        <!-- TO-DO: implement a visual feedback on add -->
+        <button class="button buy" title="Adicionar ao carrinho" @click="addCart(product)">
             Adicionar
         </button>
     </li>

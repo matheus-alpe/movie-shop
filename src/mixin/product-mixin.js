@@ -38,6 +38,11 @@ export default {
             return Boolean(this.getFavoriteById()(this.product.id));
         },
 
+        quantity() {
+            const products = this.getCartProductById()(this.product.id);
+            return products && products.length;
+        },
+
         price() {
             if (this.rating >= 7) {
                 return 79.99;
@@ -60,7 +65,10 @@ export default {
     methods: {
         ...mapGetters('genre', ['getGenreById']),
         ...mapGetters('favorite', ['getFavoriteById']),
+        ...mapGetters('cart', ['getCartProductById']),
+
         ...mapActions('favorite', ['addFavorite', 'removeFavorite']),
+        ...mapActions('cart', ['addCart', 'removeCart']),
 
         fallbackHandler(event) {
             event.target.src = require('@/assets/images/fallback.png');
