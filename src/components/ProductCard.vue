@@ -20,7 +20,7 @@
                     <span class="value">7</span>
                 </span>
 
-                <span class="gender"> Gênero </span>
+                <span class="genre">Gênero</span>
             </p>
 
             <p class="price">R$ 79.99</p>
