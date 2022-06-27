@@ -1,5 +1,13 @@
 # movie-shop
 
+## Description
+A movie shop using [TMDB API](https://www.themoviedb.org/) as product base.  You can see the live preview on this [link](https://movie-shop-eight.vercel.app/).
+
+## Used tools
+- Vue 2 Framework; 
+- Vuex for state management;
+- Vue-Router for routes; 
+
 ## Project setup
 ```
 yarn install
