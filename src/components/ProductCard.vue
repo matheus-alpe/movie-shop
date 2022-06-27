@@ -98,7 +98,7 @@ export default {
 
             setTimeout(() => {
                 this.hasAdded = false;
-            }, 1500)
+            }, 600);
         }
     }
 };

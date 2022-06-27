@@ -5,25 +5,12 @@
         </div>
 
         <!-- TO-DO: refact this component -->
-        <fixed-aside class="cart-modal" v-show="showCart">
-            <div class="aside-header">
-                <h2>Meu Carrinho</h2>
-                <span
-                    class="material-icons close" 
-                    @click="openModal('')"
-                >
-                    close
-                </span>
-            </div>
-
-            <transition-group tag="ul" name="fade-list" class="basket-products scroll" >
-                <basket-item
-                    v-for="cartProduct in getUniqueProductsList"
-                    :key="cartProduct.id"
-                    :product="cartProduct"
-                />
-            </transition-group>
-
+        <fixed-aside 
+            v-show="showCart"
+            class="cart-modal"
+            title="Meu Carrinho"
+            :product-list="getUniqueProductsList"
+        > 
             <div class="summary">
                 <p class="total">
                     <span>Total:</span>
@@ -41,38 +28,25 @@
             </div>
         </fixed-aside>
 
-        <fixed-aside class="favorite-modal" v-show="showFavorite">
-            <div class="aside-header">
-                <h2>Meus Favoritos</h2>
-                <span class="material-icons close" @click="openModal('')"
-                    >close</span
-                >
-            </div>
-
-            <transition-group tag="ul" name="fade-list" class="basket-products scroll">
-                <basket-item
-                    :is-cart-item="false"
-                    v-for="favoriteProduct in favoriteList"
-                    :key="favoriteProduct.id"
-                    :product="favoriteProduct"
-                />
-            </transition-group>
-        </fixed-aside>
+        <fixed-aside
+            v-show="showFavorite"
+            title="Meus Favoritos"
+            :is-cart="false"
+            :product-list="favoriteList"
+        />
     </div>
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 import FixedAside from '@/views/FixedAsideView.vue';
-import BasketItem from '@/components/BasketItem.vue';
 
 export default {
     name: 'ContainerView',
 
     components: {
         FixedAside,
-        BasketItem,
     },
 
     computed: {
@@ -95,7 +69,6 @@ export default {
     },
 
     methods: {
-        ...mapActions(['openModal']),
 
         handleCartRedirect() {
             if (!this.hasItemInCart) return;
