@@ -83,3 +83,11 @@
         height: 3px;
     }
 }
+
+.sp-col-2 {
+    grid-column: span 2;
+}
+
+.sp-col-3 {
+    grid-column: span 3;
+}

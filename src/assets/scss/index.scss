@@ -349,14 +349,6 @@
             .grid-row {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 20px;
-
-                .sp-col-2 {
-                    grid-column: span 2;
-                }
-
-                .sp-col-3 {
-                    grid-column: span 3;
-                }
             }
         }
 
@@ -403,9 +395,8 @@
         display: grid;
         place-items: center;
         background-color: rgba(0, 0, 0, 0.2);
-        position: absolute;
+        position: fixed;
         inset: 0;
-        top: calc(0px - var(--header-height));
         z-index: 100;
 
         .modal-content {

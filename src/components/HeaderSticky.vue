@@ -18,7 +18,7 @@
 
             <nav class="actions">
                 <span
-                    @click="handleModal('favorite')"
+                    @click="handleModal('favorite-view')"
                     aria-label="Favoritos"
                     title="Favoritos"
                     class="material-icons md-30 md-light"
@@ -26,7 +26,7 @@
                 >
 
                 <span
-                    @click="handleModal('cart')"
+                    @click="handleModal('cart-view')"
                     class="cart"
                     title="Carrinho"
                 >

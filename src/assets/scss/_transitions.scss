@@ -10,11 +10,13 @@
     transition: all var(--transition-duration);
 }
 
-.fade-enter,
-.fade-leave-to {
+
+.slide-enter,
+.slide-leave-to {
+    transform: translateX(100%);
     opacity: 0;
 }
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 2s;
+.slide-enter-active,
+.slide-leave-active {
+    transition: all var(--transition-duration);
 }

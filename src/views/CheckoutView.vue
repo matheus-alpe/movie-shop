@@ -34,8 +34,7 @@
 
             <div class="grid-column summary">
                 <div class="grid-row summary-header">
-                    <span>Imagem</span>
-                    <span>Nome</span>
+                    <span class="sp-col-2">Nome</span>
                     <span>Qtd</span>
                     <span>Preço</span>
                 </div>
