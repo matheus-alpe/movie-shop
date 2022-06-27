@@ -26,6 +26,7 @@ export default {
         ...mapActions('genre', ['setGenreList']),
         ...mapActions('favorite', ['setFavoriteList']),
         ...mapActions('cart', ['setCartList']),
+        ...mapActions('user', ['setUser']),
     },
 
     async created() {
@@ -34,6 +35,9 @@ export default {
 
         const cartList = arrayUtil.safeArray(localStorage.get('cart_list'));
         this.setCartList(cartList);
+        
+        const user = localStorage.get('user') || {};
+        this.setUser(user);
 
         // TO-DO: refactor this part
         try {

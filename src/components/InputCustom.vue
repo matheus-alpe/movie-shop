@@ -7,9 +7,12 @@
             class="input"
             :type="type"
             :id="id"
-            v-model="value"
+            :value="value"
             @focus="handlerFocus"
             @blur="handlerFocus"
+            @input="$emit('input', $event.target.value)"
+            :minlength="minLength"
+            :pattern="pattern"
             required />
     </label>
 </template>
@@ -21,15 +24,21 @@ export default {
     props: {
         id: String,
 
-        initialValue: {
+        minLength: {
             type: String,
-            default: '',
+            default: '2'
+        },
+
+        value: {
+            type: String,
         },
 
         label: {
             type: String,
             required: true,
         },
+
+        pattern: String,
 
         type: {
             type: String,
@@ -39,7 +48,6 @@ export default {
 
     data() {
         return {
-            value: undefined,
             focus: false
         };
     },
@@ -54,10 +62,6 @@ export default {
         handlerFocus() {
             this.focus = !this.focus;
         }
-    },
-
-    created() {
-        this.value = this.initialValue;
     },
 };
 </script>
