@@ -16,13 +16,13 @@
                 </span>
             </div>
 
-            <ul class="basket-products scroll">
+            <transition-group tag="ul" name="fade-list" class="basket-products scroll" >
                 <basket-item
                     v-for="cartProduct in getUniqueProductsList"
                     :key="cartProduct.id"
                     :product="cartProduct"
                 />
-            </ul>
+            </transition-group>
 
             <div class="summary">
                 <p class="total">
@@ -35,6 +35,7 @@
                     :class="{ disabled: !hasItemInCart }"
                     @click="handleCartRedirect"
                 >
+                    <span class="material-icons">shopping_cart_checkout</span>
                     Finalizar compra
                 </button>
             </div>
@@ -48,14 +49,14 @@
                 >
             </div>
 
-            <ul class="basket-products scroll">
+            <transition-group tag="ul" name="fade-list" class="basket-products scroll">
                 <basket-item
                     :is-cart-item="false"
                     v-for="favoriteProduct in favoriteList"
                     :key="favoriteProduct.id"
                     :product="favoriteProduct"
                 />
-            </ul>
+            </transition-group>
         </fixed-aside>
     </div>
 </template>

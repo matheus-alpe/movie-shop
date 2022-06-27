@@ -1,0 +1,20 @@
+
+.fade-list-enter,
+.fade-list-leave-to {
+    opacity: 0;
+    transform: translateX(-200px);
+}
+.fade-list-enter-active,
+.fade-list-leave-active,
+.fade-list-move {
+    transition: all var(--transition-duration);
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 2s;
+}

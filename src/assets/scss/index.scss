@@ -2,6 +2,7 @@
 @use 'variables';
 @use 'fonts';
 @use 'components';
+@use 'transitions';
 
 #app {
     display: grid;
@@ -80,6 +81,7 @@
                     background: var(--bg-quaternary);
                     border-radius: 50%;
                     font-size: 0.625rem;
+                    user-select: none;
                 }
             }
         }

@@ -49,13 +49,30 @@
         </div>
 
         <!-- TO-DO: implement a visual feedback on add -->
+        
         <button
+            v-if="rating"
             class="button buy"
-            :class="{ disabled: !rating }"
+            :class="{ success: hasAdded }"
             title="Adicionar ao carrinho"
             @click="handleBuy(product)"
         >
-            {{ rating ? 'Adicionar': 'EM BREVE' }}
+            <template v-if="!hasAdded">
+                Adicionar
+            </template>
+
+            <template v-else>
+                <div class="material-icons" title="Adicionado">done</div>
+            </template>
+        </button>
+
+
+        <button
+            v-else
+            class="button buy disabled"
+            title="Esgotado"
+        >
+            Esgotado
         </button>
     </li>
 </template>
@@ -68,10 +85,20 @@ export default {
 
     mixins: [productMixin],
 
+    data() {
+        return {
+            hasAdded: false
+        }
+    },
+
     methods: {
         handleBuy(product) {
-            if (!this.rating) return;
             this.addCart(product);
+            this.hasAdded = true;
+
+            setTimeout(() => {
+                this.hasAdded = false;
+            }, 1500)
         }
     }
 };
