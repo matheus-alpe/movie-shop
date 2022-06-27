@@ -10,7 +10,8 @@
             </span>
         </div>
 
-        <transition-group tag="ul" name="fade-slide" class="basket-products scroll" >
+
+        <transition-group v-if="productList.length" tag="ul" name="fade-slide" class="basket-products scroll" >
             <basket-item
                 v-for="product in productList"
                 :key="product.id"
@@ -18,6 +19,12 @@
                 :product="product"
             />
         </transition-group>
+
+        <ul class="basket-products empty" v-else>
+            <span class="material-icons md-48">sentiment_dissatisfied</span>
+            <p>Você ainda não adicionou produtos</p>
+        </ul>
+
 
         <slot />
     </div>

@@ -48,8 +48,6 @@
             <p class="price" v-if="rating">{{ priceFormated }}</p>
         </div>
 
-        <!-- TO-DO: implement a visual feedback on add -->
-        
         <button
             v-if="rating"
             class="button buy"

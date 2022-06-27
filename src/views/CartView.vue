@@ -1,5 +1,4 @@
 <template>
-    <!-- TO-DO: refact this component -->
     <aside-fixed
         class="cart-modal"
         title="Meu Carrinho"

@@ -22,7 +22,6 @@ export default {
     },
 
     methods: {
-        // ...mapActions(['setLoadingState']),
         ...mapActions('genre', ['setGenreList']),
         ...mapActions('favorite', ['setFavoriteList']),
         ...mapActions('cart', ['setCartList']),
@@ -43,7 +42,6 @@ export default {
     },
 
     async created() {
-        // this.setLoadingState(true);
         this.initialSetup();
 
         try {

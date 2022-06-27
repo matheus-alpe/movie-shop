@@ -29,7 +29,7 @@ export default {
         },
 
         rating() {
-            return Math.floor(this.product.vote_average);
+            return Math.floor(this.product.vote_average || 0);
         },
 
         genre() {
