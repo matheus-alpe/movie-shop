@@ -5,5 +5,5 @@ export default {
     
     getTrendings: (page = '1') => api({ method: 'GET', url: `/trending/movie/week?page=${page}`}),
     
-    searchByTerm: (term) => api({ method: 'GET', url: `/search/movie?query=${term}` })
+    searchByTerm: (page, term) => api({ method: 'GET', url: `/search/movie?query=${term}&page=${page}` })
 }

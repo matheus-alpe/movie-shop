@@ -22,7 +22,6 @@ export default {
     },
 
     methods: {
-        ...mapActions('product', ['setProductList']),
         ...mapActions('genre', ['setGenreList']),
         ...mapActions('favorite', ['setFavoriteList']),
         ...mapActions('cart', ['setCartList']),
@@ -43,14 +42,6 @@ export default {
         try {
             const { data } = await movieService.getAllGenresTypes();
             this.setGenreList(data.genres);
-        } catch (error) {
-            // TO-DO: implement error handler
-            console.log(error);
-        }
-
-        try {
-            const { data } = await movieService.getTrendings();
-            this.setProductList(data.results);
         } catch (error) {
             // TO-DO: implement error handler
             console.log(error);

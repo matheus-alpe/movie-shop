@@ -17,6 +17,8 @@ export default {
         },
 
         releaseDate() {
+            if(!this.product.release_date) return '';
+
             const date = new Date(this.product.release_date);
             const day = date.getUTCDate();
             let month = stringUtil.capitalizeIt(
@@ -31,7 +33,8 @@ export default {
         },
 
         genre() {
-            return this.getGenreById()(this.product.genre_ids[0]);
+            const genre = this.getGenreById()(this.product.genre_ids[0]);
+            return genre && genre.name || '';
         },
 
         isFavorite() {

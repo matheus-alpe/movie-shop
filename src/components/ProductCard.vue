@@ -29,7 +29,7 @@
                     :alt="'Poster image from ' + product.title"
                     @error="fallbackHandler"
                 />
-                <figcaption>{{ releaseDate }}</figcaption>
+                <figcaption v-if="releaseDate">{{ releaseDate }}</figcaption>
             </figure>
         </div>
 
@@ -42,7 +42,7 @@
                     <span class="value">{{ rating }}</span>
                 </span>
 
-                <span class="genre" :title="genre.name">{{ genre.name }}</span>
+                <span class="genre" :title="genre">{{ genre }}</span>
             </p>
 
             <p class="price" v-if="rating">{{ priceFormated }}</p>
