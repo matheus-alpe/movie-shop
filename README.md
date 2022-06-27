@@ -1,4 +1,4 @@
-# dot-movie-shop
+# movie-shop
 
 ## Project setup
 ```
