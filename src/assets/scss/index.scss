@@ -3,6 +3,7 @@
 @use 'fonts';
 @use 'components';
 @use 'transitions';
+@use 'animation';
 
 #app {
     display: grid;
@@ -412,6 +413,13 @@
             }
         }
     }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
 }
 
 @media (max-width: 812px) {

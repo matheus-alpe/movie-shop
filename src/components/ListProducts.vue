@@ -1,22 +1,39 @@
 <template>
-    <ul class="products">
-        <product-card v-for="product in products" :key="product.id" :product="product"/>
+    <div>
+        <transition-group name="fade" class="products">
+            <product-card
+                v-for="product in products"
+                :key="product.id"
+                :product="product"
+            />
+        </transition-group>
 
-        <!-- TO-DO: pagination -->
-    </ul>
+        <div class="pagination">
+            <span class="material-icons md-48 rotating" v-if="isLoading">refresh</span>
+        </div>
+
+        <h3 v-if="!isLoading && !products.length">
+            Não achamos nenhum resultado, tente novamente!
+        </h3>
+    </div>
 </template>
 
 <script>
-import ProductCard from '@/components/ProductCard.vue'
+import ProductCard from '@/components/ProductCard.vue';
+import { mapState } from 'vuex';
 
 export default {
     name: 'ListProducts',
     components: {
-        ProductCard
+        ProductCard,
     },
 
     props: {
-        products: Array
+        products: Array,
+    },
+
+    computed: {
+        ...mapState(['isLoading']),
     }
 };
 </script>

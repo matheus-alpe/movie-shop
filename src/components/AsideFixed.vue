@@ -10,7 +10,7 @@
             </span>
         </div>
 
-        <transition-group tag="ul" name="fade-list" class="basket-products scroll" >
+        <transition-group tag="ul" name="fade-slide" class="basket-products scroll" >
             <basket-item
                 v-for="product in productList"
                 :key="product.id"

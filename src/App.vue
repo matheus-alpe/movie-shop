@@ -22,23 +22,30 @@ export default {
     },
 
     methods: {
+        // ...mapActions(['setLoadingState']),
         ...mapActions('genre', ['setGenreList']),
         ...mapActions('favorite', ['setFavoriteList']),
         ...mapActions('cart', ['setCartList']),
         ...mapActions('user', ['setUser']),
+
+        initialSetup() {
+            const favoriteList = arrayUtil.safeArray(
+                localStorage.get('favorite_list')
+            );
+            this.setFavoriteList(favoriteList);
+
+            const cartList = arrayUtil.safeArray(localStorage.get('cart_list'));
+            this.setCartList(cartList);
+
+            const user = localStorage.get('user') || {};
+            this.setUser(user);
+        },
     },
 
     async created() {
-        const favoriteList = arrayUtil.safeArray(localStorage.get('favorite_list'));
-        this.setFavoriteList(favoriteList);
+        // this.setLoadingState(true);
+        this.initialSetup();
 
-        const cartList = arrayUtil.safeArray(localStorage.get('cart_list'));
-        this.setCartList(cartList);
-        
-        const user = localStorage.get('user') || {};
-        this.setUser(user);
-
-        // TO-DO: refactor this part
         try {
             const { data } = await movieService.getAllGenresTypes();
             this.setGenreList(data.genres);
