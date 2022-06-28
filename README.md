@@ -7,6 +7,7 @@ A movie shop using [TMDB API](https://www.themoviedb.org/) as product base.  You
 - Vue 2 Framework; 
 - Vuex for state management;
 - Vue-Router for routes; 
+- Material-Icons for icons;
 
 ## Project setup
 ```
