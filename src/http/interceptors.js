@@ -15,10 +15,6 @@ export const requestInterceptor = (config) => {
 };
 
 export const responseInterceptor = (response) => {
-    if (response.status === 401) {
-        store.dispatch('auth/resetSession')
-    }
-
     store.dispatch('setLoadingState', false);
     return response;
 }
