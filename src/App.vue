@@ -3,6 +3,8 @@
         <header-dot />
 
         <container-view />
+
+        <v-tour name="myTour" :steps="tourConfig.steps" :options="tourConfig.options"/>
     </div>
 </template>
 
@@ -19,6 +21,55 @@ export default {
     components: {
         ContainerView,
         HeaderDot,
+    },
+
+    data () {
+        return {
+
+            tourConfig: {
+                options: {
+                    useKeyboardNavigation: false,
+                    labels: {
+                        buttonSkip: 'Pular tour',
+                        buttonPrevious: 'Anterior',
+                        buttonNext: 'Próximo',
+                        buttonStop: 'Terminar'
+                    }
+                },
+                steps: [
+                    {
+                        target: '.search-input',
+                        content: `Pesquise seu filme aqui`,
+                        params: {
+                            highlight: true
+                        }
+                    },
+                    {
+                        target: '[aria-label="Favoritar"]',
+                        content: 'Adicione aos favoritos.',
+                        params: {
+                            placement: 'right'
+                        }
+                    },
+                    {
+                        target: '[aria-label="Favoritos"]',
+                        content: 'Acompanhe sua lista de filmes favoritos.',
+                    },
+                    {
+                        target: '.button.buy',
+                        content: 'Adicione ao carrinho.',
+                        params: {
+                            placement: 'left'
+                        }
+                    },
+                    {
+                        target: '[aria-label="Carrinho"]',
+                        content: 'Acompanhe seu carrinho de filmes.',
+                    },
+                ]
+            },
+            
+        }
     },
 
     methods: {
@@ -52,5 +103,9 @@ export default {
             console.log(error);
         }
     },
+
+    mounted() {
+        this.$tours['myTour'].start();
+    }
 };
 </script>
